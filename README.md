@@ -2,16 +2,23 @@
 ~ Nam Gyu Kil
 
 ## Project Goal
-This project is to apply the [Trajectron++ code](https://github.com/StanfordASL/Trajectron-plus-plus) for vehicle trajectory predictions on various datasets. The four datasets that we tested Trajectron++ were NuScenes, Lyft, Argoverse and Waymo. The databases contain information on the ego vehicle, as well other vehicles and pedestrians for every timestep. The scenes for the databases range from 10-60 seconds. The databases have been recorded in different frequencies:
-- NuScenes: 2 Hz
-- Lyft: 5 Hz
-- ArgoVerse: 5 Hz
-- Waymo: 10 Hz  
+This project is to apply the [Trajectron++ code](https://github.com/StanfordASL/Trajectron-plus-plus) for vehicle trajectory predictions on various datasets. The four datasets that we tested Trajectron++ were NuScenes, Lyft, Argoverse and Waymo. The databases contain information on the ego vehicle, as well other vehicles and pedestrians for every timestep. The scenes for the databases range from 10-30 seconds. The databases have been recorded in different frequencies and the table below shows information on the dataset used for this evaluation.
 
-The databases all have their own unique format which have been converted to a common format using [MAVRIC 2020 Summer Project](https://github.com/jskumaar/MAVRIC_Interaction_Modeling). This standard format is stored in a .csv file which is then processed into .pkl and fed into the Trajectron++ pipeline as input. 
+
+| Name  | Number of Scenes | Data Size (hrs) | Scene Duration (sec) | Recording Frequency (Hz) |  
+| --- | --- | --- | --- | --- |
+| NuScenes | 1000 | approx 5.5 | 20 | 2 | 
+| Lyft | 366 | approx 2.5 | 25 | 5 |
+| ArgoVerse | 113 | approx 1 | 15-30 | 5 | 
+| Waymo | 1150 | approx 6.4 | 20 |  10 |
+
+The databases all have their own unique format which have been converted to a common format using [MAVRIC 2020 Summer Project](https://github.com/jskumaar/MAVRIC_Interaction_Modeling). This github page has the links to download the NuScenes, Lyft, Argoverse, and Waymo dataset. To run the jupyter notebook .ipynb files in this repository, you must first have the .csv files generated from conversion file in the [MAVRIC 2020 Summer Project](https://github.com/jskumaar/MAVRIC_Interaction_Modeling) 
+
+This standard format is stored in a .csv file which is then processed into .pkl and fed into the Trajectron++ pipeline as input. 
 
 ## How to run the code
-Before running this code, users must first download databases they are interested in ([NuScenes](https://www.nuscenes.org/), [Lyft](https://self-driving.lyft.com/level5/data/), [Argoverse](https://www.argoverse.org/), and [Waymo](https://waymo.com/open/data/)). Then process the data into a common format using  [MAVRIC 2020 Summer Project](https://github.com/jskumaar/MAVRIC_Interaction_Modeling). The .csv files should then be stored in /experiments/data/data in respective folder (nuScenes, Lyft, Argoverse, Waymo).  
+Before running this code, users must first download databases they are interested in ([NuScenes](https://www.nuscenes.org/), [Lyft](https://self-driving.lyft.com/level5/data/), [Argoverse](https://www.argoverse.org/), and [Waymo](https://waymo.com/open/data/)). Then process the data into a common format using  [MAVRIC 2020 Summer Project](https://github.com/jskumaar/MAVRIC_Interaction_Modeling). The .csv files should then be stored in [/experiments/data/data](/experiments/data/data) in respective folder (nuScenes, Lyft, Argoverse, Waymo).  
+  
 The code is stored in the folder [experiments/MAVRIC](experiments/MAVRIC) as Jupyter Notebook files ./ipnb. There are multiple notebook which does the following:
 
 ### 1_process_data_MAVRIC.ipynb
