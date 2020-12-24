@@ -1,9 +1,10 @@
 # MAVRIC Trajectron Evaluation on NuScenes, Lyft, Argoverse, and Waymo Dataset Winter 2020
-~ Nam Gyu Kil
+~ Nam Gyu Kil   
+<img src="img/TrajectronSample.png" alt="drawing" height="400" title="Trajectron Sample Plot"/>  
+*Plots of trajectories predicted using Trajectron++ running NuScenes Qualitative.ipynb*
 
 ## Project Goal
 This project is to apply the [Trajectron++ code](https://github.com/StanfordASL/Trajectron-plus-plus) for vehicle trajectory predictions on various datasets. The four datasets that we tested Trajectron++ were NuScenes, Lyft, Argoverse and Waymo. The databases contain information on the ego vehicle, as well other vehicles and pedestrians for every timestep. The scenes for the databases range from 10-30 seconds. The databases have been recorded in different frequencies and the table below shows information on the dataset used for this evaluation.
-
 
 | Name  | Number of Scenes | Data Size (hrs) | Scene Duration (sec) | Recording Frequency (Hz) |  
 | --- | --- | --- | --- | --- |
@@ -36,3 +37,5 @@ The inputs to evaluate_MAVRIC.py are the following:
 - prediction horizon
 
 ### 3_plotbar_dyna4_veh.ipynb
+<img src="img/NuScenesBarPlots.png" alt="drawing" height="400" title="FDE/ADE Bar Plots for NuScenes"/>  
+*FDE/ADE Bar Plots for NuScenes*
