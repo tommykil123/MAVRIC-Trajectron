@@ -23,7 +23,13 @@ Before running this code, users must first download databases they are intereste
 The code is stored in the folder [experiments/MAVRIC](experiments/MAVRIC) as Jupyter Notebook files ./ipnb. There are multiple notebook which does the following:
 
 ### 1_process_data_MAVRIC.ipynb
-This Jupyter Notebook file invokes the [process_data_MAVRIC.py](experiments/process_data_MAVRIC.py) function. This function is modifed from the original Trajectron++ github repository to account for common format used for the multiple datasets. The input to the process_data_MAVRIC.py are the common format .csv and the output are .pkl files necessary for evaluation of the Trajectron++ algoritm.
+This Jupyter Notebook file invokes the [process_data_MAVRIC.py](experiments/process_data_MAVRIC.py) function. This function is modifed from the original Trajectron++ github repository to account for common format used for the multiple datasets. The input to the process_data_MAVRIC.py are the common format .csv and the output are .pkl files necessary for evaluation of the Trajectron++ algoritm. The .pkl files should then be stored in  [/experiments/data/processed](/experiments/data/processed) in respective folder (nuScenes, Lyft, Argoverse, Waymo).  Below is a sample snipped of the .csv outputed by running this jupyter notebook file.
+
+| Scene ID  | Frame ID | Obj Type | Obj ID | x,y,z (m) | quaternoin | x_dot, y_dot, z_dot(m/s) |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | 0 | vehicle | 0 | -0.2, 16.2, 0.7 | -0.63, 0.01, 0.01, -0.7 | 0.0, 0.0, 0.0, 0.0 |
+| ... | ... | ... | ... | ... | ... | ... |
+
 ### 2_evaluate_dyna4_veh.ipnb
 This Jupyter Notebook file invokes the [evaluate_MAVRIC.py](experiments/evaluate_MAVRIC.py) function. This function is modified from the original Trajectron++ github repository as the output .csv file.  
 `python evaluate_MAVRIC.py --model models/int_ee --checkpoint=12 --data ./data/processed/nuScenes/nuScenes_01_full.pkl --output_path ./data/results/DYNAMICS_INTEGRATION/4sec/VEHICLE/nuScenes/01 --output_tag int_ee --node_type VEHICLE --prediction_horizon 4`   
@@ -35,6 +41,8 @@ The inputs to evaluate_MAVRIC.py are the following:
 - output tag
 - node type
 - prediction horizon
+<img src="img/FDEmostlikelySample.png" alt="drawing" height="200" title="FDE most likely Sample"/>  
+*Screenshot of fde_most_likely_z.csv for Waymo Dataset 0029*
 
 ### 3_plotbar_dyna4_veh.ipynb
 <img src="img/NuScenesBarPlots.png" alt="drawing" height="400" title="FDE/ADE Bar Plots for NuScenes"/>  
