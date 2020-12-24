@@ -33,17 +33,16 @@ This Jupyter Notebook file invokes the [process_data_MAVRIC.py](experiments/proc
 ### 2_evaluate_dyna4_veh.ipnb
 This Jupyter Notebook file invokes the [evaluate_MAVRIC.py](experiments/evaluate_MAVRIC.py) function. This function is modified from the original Trajectron++ github repository as the output .csv file.  
 `python evaluate_MAVRIC.py --model models/int_ee --checkpoint=12 --data ./data/processed/nuScenes/nuScenes_01_full.pkl --output_path ./data/results/DYNAMICS_INTEGRATION/4sec/VEHICLE/nuScenes/01 --output_tag int_ee --node_type VEHICLE --prediction_horizon 4`   
-The inputs to evaluate_MAVRIC.py are the following:
-- model
-- checkpoint
-- data
-- output path
-- output tag
-- node type
-- prediction horizon
 <img src="img/FDEmostlikelySample.png" alt="drawing" height="200" title="FDE most likely Sample"/>  
 *Screenshot of fde_most_likely_z.csv for Waymo Dataset 0029*
 
 ### 3_plotbar_dyna4_veh.ipynb
+This Jupyter Notebook reads the output .csv file of evaluations done by the evalation .ipynb file. The evaluation metrics used were: 
+- Final Displacement Error (FDE): The distance from the ground truth position at time tf=tc + 4 to the final predicted position at time tf from trajectory prediction (where tc is current time).
+- Average Displacement Error (ADE): The average of the l2 distance  from the ground truth position at times ti to tf to the predicted positions at times ti to tf from trajectory prediction.  
+Below is a sample image of the FDE for NuScenes dataset.
 <img src="img/NuScenesBarPlots.png" alt="drawing" height="400" title="FDE/ADE Bar Plots for NuScenes"/>  
-*FDE/ADE Bar Plots for NuScenes*
+*FDE Bar Plots for NuScenes*
+
+## Other Considerations
+These jupyter notebook files were run on a google Colab instance. They can be run on a local instance as well but users to be careful about some of the syntax used for this notebook. For example `!python` is used whereas in a local instance the syntax would be `python`.
