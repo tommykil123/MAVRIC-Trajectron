@@ -36,6 +36,24 @@ This Jupyter Notebook file invokes the [evaluate_MAVRIC.py](experiments/evaluate
 <img src="img/FDEmostlikelySample.png" alt="drawing" height="200" title="FDE most likely Sample"/>  
 *Screenshot of fde_most_likely_z.csv for Waymo Dataset 0029*
 
+There are several inputs that can be changed for challenging what models (base, dynamic integration), time horizon (1-6 seconds), and agent type (vehicle, pedestrian).   
+To change the model configuration:
+| Model                                     | Command                                                                                                                                                                                          |
+|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Base                                      | `--model models/vel_ee --output_tag vel_ee `       |
+| +Dynamics Integration                     | `--model models/int_ee --output_tag int_ee `       |  
+
+To change the time horizon configuration:
+| Time Horizon                                     | Command                                                                                                                                                                                          |
+|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2 Second                 | `--prediction_horizon 2`       |
+| 4 Second                 | `--prediction_horizon 4`       |     
+
+To change the Agent Type configuration:
+| Agent Type                                   | Command                                                                                                                                                                                          |
+|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Vehicle                    | `--node_type VEHICLE`       |
+| Pedestrian                 | `--node_type PEDESTRIAN`       |  
 ### 3_plotbar_dyna4_veh.ipynb
 This Jupyter Notebook reads the output .csv file of evaluations done by the evalation .ipynb file. The evaluation metrics used were: 
 - Final Displacement Error (FDE): The distance from the ground truth position at time tf=tc + 4 to the final predicted position at time tf from trajectory prediction (where tc is current time).
